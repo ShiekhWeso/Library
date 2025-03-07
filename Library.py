@@ -41,25 +41,38 @@ def display_library(library):
 def delete_book(library, n):
     del library[n]
     
+def status_modifier(library, n, borrow=0, resotre=0):
+    # this will help in case if the book is borrowed and you want to return it, and will also help in case if the book is avaliable and you want to retrun it.
+    if n in library:
+        book_status = list(library[n].values())[-1]
+        if borrow == 1:
+            book_status = "bor"
+        if resotre == 1:
+            book_status = "ava"
+    else:
+        print("The book doesn't exist.")
 
 def borrow_book(library, n):
     if n in library:    
-        for key, value in library[n].items():
-            pass
-        if value == "ava":
+        book_status = list(library[n].values())[-1]
+        if book_status == "ava":
             print(f"This book is avalilable.")
-            delete_book(library, n)
-            display_library(library)
             
+            # make function for the status updating will be better!!!    
         else:
-            value == "bor"
+            book_status == "bor"
             print("this book is borrowed.")
+            
     else:
         print("This book doesn't exist at the library.")
+        
+def resotre_book(library, n):
+    pass
 
 # My_Library = load_library()
 # delete_book(My_Library, int(input("Plz enter the number of book you want to delete: ")))
 # add_book(My_Library)
 # save_library(My_Library)
 # borrow_book(My_Library, int(input("Plz enter the number of book you want to inquire about: ")))
-display_library(My_Library)   
+# status_modifier(My_Library, int(input("Plz enter the book you wnat to know it's status: ")))
+# display_library(My_Library)   
