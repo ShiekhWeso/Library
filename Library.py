@@ -40,12 +40,26 @@ def display_library(library):
 
 def delete_book(library, n):
     del library[n]
+    
 
-def borrow_book(library):
-    pass
+def borrow_book(library, n):
+    if n in library:    
+        for key, value in library[n].items():
+            pass
+        if value == "ava":
+            print(f"This book is avalilable.")
+            delete_book(library, n)
+            display_library(library)
+            
+        else:
+            value == "bor"
+            print("this book is borrowed.")
+    else:
+        print("This book doesn't exist at the library.")
 
-My_Library = load_library()
-# delete_book(My_Library, 2)
+# My_Library = load_library()
+# delete_book(My_Library, int(input("Plz enter the number of book you want to delete: ")))
 # add_book(My_Library)
 # save_library(My_Library)
-display_library(My_Library)
+# borrow_book(My_Library, int(input("Plz enter the number of book you want to inquire about: ")))
+display_library(My_Library)   
